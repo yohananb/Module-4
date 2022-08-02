@@ -33,12 +33,11 @@ var questions = [
 ]
 
 function hide(){
-document.getElementById("opt1").style.display = "none";
-document.getElementById("opt2").style.display = "none";
-document.getElementById("opt3").style.display = "none";
-document.getElementById("opt4").style.display = "none";
-}
-    
+document.getElementById("answersList").style.display = "none"
+
+ }
+
+
 
 var timerleft = 50
 var currentquestion = 0
@@ -50,9 +49,13 @@ function showquestion(){
     document.getElementById("opt4").textContent = questions[currentquestion].options[3]
 }
 
+if(!answer) (
+    timerleft,-5000
+)
+
 
 function quizbegins(){
-    hide()
+    document.getElementById("answersList").style.display = "block"
     startTimer() 
     showquestion()
 }
@@ -78,8 +81,12 @@ function checkanswer(event){
 
 }
 
+hide()
 
-startbtn.addEventListener("click", hide)
 startbtn.addEventListener("click",quizbegins)
 document.getElementById("opt1").addEventListener("click",checkanswer)
 document.getElementById("opt2").addEventListener("click",checkanswer)
+document.getElementById("opt3").addEventListener("click",checkanswer)
+document.getElementById("opt4").addEventListener("click",checkanswer)
+
+
