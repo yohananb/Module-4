@@ -50,7 +50,7 @@ document.getElementById("answersList").style.display = "none"
 
 
 
-var timerleft = 10
+var timerleft = 50
 var currentquestion = 0
 function showquestion(){
     document.getElementById("prompt").textContent = questions[currentquestion].prompt
@@ -79,14 +79,14 @@ function startTimer(){
         timerleft--
         timer.textContent = timerleft
 
-        if(timerleft <= 0){
+        if(timerleft <= 0 || !questions[currentquestion]){
            clearInterval(quizinterval)
            timer.textContent = "Time is up!!"
            
         //    final score at the end
-        //    var score = timerleft
-        //    var finalscore = document.getElementById("finalsscore")
-        //    finalscore.textContent = "Your final score: " + score
+           var score = timerleft
+           var finalscore = document.getElementById("finalscore")
+           finalscore.textContent = "Your final score: " + score
 
            
            var scoreboard = document.getElementById("scoreboard"); 
