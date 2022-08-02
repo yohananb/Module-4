@@ -27,15 +27,26 @@ var questions = [
     {
         prompt: "A very useful tool used during development and debugging for printing content  to the debugger is", 
         options: ["JavaScript", "terminal/bash", "for loops", "console.log"],
-        answer:"Javascript"
+        answer:"Javascript",
+
+
+
+
+
+
 
     }
 ]
 
 function hide(){
 document.getElementById("answersList").style.display = "none"
+}
 
- }
+ 
+
+
+
+
 
 
 
@@ -47,11 +58,10 @@ function showquestion(){
     document.getElementById("opt2").textContent = questions[currentquestion].options[1]
     document.getElementById("opt3").textContent = questions[currentquestion].options[2]
     document.getElementById("opt4").textContent = questions[currentquestion].options[3]
+    
 }
 
-if(!answer) (
-    timerleft,-5000
-)
+
 
 
 function quizbegins(){
@@ -68,16 +78,35 @@ function startTimer(){
     function timegoesdown(){
         timerleft--
         timer.textContent = timerleft
+
+        if(timerleft <= 0){
+           clearInterval(quizinterval)
+           timer.textContent = "Time is up!!"
+           
+
+
+        }
+    }
+
+
+
+        
  }
     
 
-}
+
        
 function checkanswer(event){
     var userchoice = event.target.textContent
-    // use userchoice to check if its incorrect or correct
+    questions[currentquestion].answer
+    if(questions[currentquestion].answer != userchoice){
+        timerleft -= 5
+    }
+    
     currentquestion++
     showquestion()
+
+    // use userchoice to check if its incorrect or correct
 
 }
 
