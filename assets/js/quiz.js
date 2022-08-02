@@ -50,7 +50,7 @@ document.getElementById("answersList").style.display = "none"
 
 
 
-var timerleft = 5
+var timerleft = 10
 var currentquestion = 0
 function showquestion(){
     document.getElementById("prompt").textContent = questions[currentquestion].prompt
@@ -82,6 +82,13 @@ function startTimer(){
         if(timerleft <= 0){
            clearInterval(quizinterval)
            timer.textContent = "Time is up!!"
+           
+        //    final score at the end
+        //    var score = timerleft
+        //    var finalscore = document.getElementById("finalsscore")
+        //    finalscore.textContent = "Your final score: " + score
+
+           
            var scoreboard = document.getElementById("scoreboard"); 
         //    get the scoreboard id 
            scoreboard.classList.remove("displaynone"); 
@@ -95,9 +102,9 @@ function startTimer(){
            
            var startbtngone = document.getElementById("start");
            startbtngone.classList.add("displaynone");
-        
-        
 
+           
+        
 
         }
     }      
@@ -115,6 +122,10 @@ function checkanswer(event){
     
     currentquestion++
     showquestion()
+
+    // if (!questions[currentquestion]) {
+    //     startTimer()
+    //    }
 
     // use userchoice to check if its incorrect or correct
 
