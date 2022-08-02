@@ -50,7 +50,7 @@ document.getElementById("answersList").style.display = "none"
 
 
 
-var timerleft = 50
+var timerleft = 5
 var currentquestion = 0
 function showquestion(){
     document.getElementById("prompt").textContent = questions[currentquestion].prompt
@@ -82,15 +82,25 @@ function startTimer(){
         if(timerleft <= 0){
            clearInterval(quizinterval)
            timer.textContent = "Time is up!!"
+           var scoreboard = document.getElementById("scoreboard"); 
+        //    get the scoreboard id 
+           scoreboard.classList.remove("displaynone"); 
+        //    removes the display none css from id
            
+           var quizquestions = document.getElementById("quizquestions");
+           quizquestions.classList.add("displaynone");
+
+           var title = document.getElementById("title");
+           title.classList.add("displaynone");
+           
+           var startbtngone = document.getElementById("start");
+           startbtngone.classList.add("displaynone");
+        
+        
 
 
         }
-    }
-
-
-
-        
+    }      
  }
     
 

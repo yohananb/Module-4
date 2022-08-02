@@ -21,6 +21,5 @@ p{margin-left: 30%;
 li{list-style-type:none;}
 
 
-.container{display: non;
-
+.displaynone{display: none;
 }
